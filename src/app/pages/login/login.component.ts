@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModeService } from '../../services/mode.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private router = inject(Router);
+  private modeService = inject(ModeService);
 
   loginForm!: FormGroup;
-  mode: 'user' | 'support' = 'user';
   errorMessage: string = '';
 
   ngOnInit(): void {
@@ -26,8 +27,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  getCurrentMode(): 'user' | 'support' {
+    return this.modeService.getMode();
+  }
+
   toggleMode(): void {
-    this.mode = this.mode === 'user' ? 'support' : 'user';
+    const newMode = this.modeService.getMode() === 'user' ? 'support' : 'user';
+    this.modeService.setMode(newMode);
   }
 
   onSubmitForm(): void {
@@ -35,7 +41,10 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    if (this.mode === 'user') {
+
+    const currentMode = this.modeService.getMode();
+
+    if (currentMode === 'user') {
       if (credentials.email === 'user@gmail.com' && credentials.password === 'POC.user') {
         this.router.navigate(['/user']);
       } else {

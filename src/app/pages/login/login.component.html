@@ -3,12 +3,12 @@
     <img src="assets/logo_you_car_your_way.png" alt="logo_you_car_your_way" class="object-contain">
   </div>
 </header>
-<div class="bg-white shadow-xl rounded-lg mt-10 w-1/2 mx-auto p-8 relative">
+<div class="bg-white border border-black/10 shadow-xl rounded-lg mt-10 w-1/2 mx-auto p-8 relative">
   <h1 class="uppercase font-bold text-xl text-center">Connexion</h1>
   <div class="absolute top-9 right-4 flex items-center space-x-2">
-    <span class="uppercase text-xs font-medium opacity-50 transition" [ngClass]="{'!opacity-100': (mode === 'support')}">Mode support</span>
+    <span class="uppercase text-xs font-medium opacity-50 transition" [ngClass]="{'!opacity-100': (getCurrentMode() === 'support')}">Mode support</span>
     <button type="button" class="rounded-full w-8 h-5 flex items-center cursor-pointer border border-gray-500" (click)="toggleMode()">
-      <div class="h-3.5 w-3.5 rounded-full opacity-50 bg-gray-500 translate-x-0.5 transition" [ngClass]="{'!opacity-100 !bg-blue !translate-x-3.5': (mode === 'support')}"></div>
+      <div class="h-3.5 w-3.5 rounded-full opacity-50 bg-gray-500 translate-x-0.5 transition" [ngClass]="{'!opacity-100 !bg-blue !translate-x-3.5': (getCurrentMode() === 'support')}"></div>
     </button>
   </div>
   <form [formGroup]="loginForm" class="flex flex-col items-center space-y-4 mt-10">
