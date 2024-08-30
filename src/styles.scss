@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-input {
+input, textarea {
   border: 1px solid theme("colors.blue");
   border-radius: 4px;
   padding: 8px 12px;
