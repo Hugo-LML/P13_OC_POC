@@ -1,39 +1,31 @@
-<!-- Header Section -->
-<header class="p-6 border-b border-gray-300">
+<header class="p-6 border-b border-gray-300 relative">
   <div class="container mx-auto">
     <h1 class="text-3xl font-bold">Page Header</h1>
     <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </div>
 </header>
 
-<!-- Main Content Section -->
 <main class="container mx-auto p-6">
-  <!-- Introduction Section -->
   <section class="mb-10">
     <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
     <p class="text-base max-w-[50%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </section>
 
-  <!-- Features Section -->
   <section class="mb-10">
     <h2 class="text-2xl font-semibold mb-4">Features</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Feature 1 -->
       <div class="p-4 border border-gray-300 rounded">
         <h3 class="text-xl font-bold mb-2">Feature 1</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
-      <!-- Feature 2 -->
       <div class="p-4 border border-gray-300 rounded">
         <h3 class="text-xl font-bold mb-2">Feature 2</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
-      <!-- Feature 3 -->
       <div class="p-4 border border-gray-300 rounded">
         <h3 class="text-xl font-bold mb-2">Feature 3</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
-      <!-- Feature 4 -->
       <div class="p-4 border border-gray-300 rounded">
         <h3 class="text-xl font-bold mb-2">Feature 4</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -41,7 +33,6 @@
     </div>
   </section>
 
-  <!-- About Section -->
   <section class="mb-10">
     <h2 class="text-2xl font-semibold mb-4">About Us</h2>
     <div class="flex justify-between">
@@ -50,7 +41,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section>
     <h2 class="text-2xl font-semibold mb-4">Contact</h2>
     <form [formGroup]="contactForm" class="max-w-[75%] mx-auto mt-6 space-y-4 text-sm">
@@ -78,10 +68,10 @@
   </section>
 </main>
 
-<!-- Footer Section -->
 <footer class="p-6 border-t border-gray-300">
   <div class="container mx-auto">
     <p class="text-center">&copy; 2024 Your Car Your Way. All rights reserved.</p>
   </div>
 </footer>
+
 <app-talkjs-chat></app-talkjs-chat>

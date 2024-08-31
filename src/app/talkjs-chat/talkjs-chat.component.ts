@@ -1,10 +1,11 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 
 import Talk from 'talkjs';
-import { USERS } from '../mock/users';
-import { ModeService } from '../services/mode.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../core/services/user.service';
+import { User } from '../core/models/User';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-talkjs-chat',
@@ -14,35 +15,38 @@ import { CommonModule } from '@angular/common';
   styleUrl: './talkjs-chat.component.scss'
 })
 export class TalkjsChatComponent implements OnInit, OnDestroy {
-  private modeService = inject(ModeService);
+  private userService = inject(UserService);
   private router = inject(Router);
-
-  currentMode!: 'user' | 'support';
+  
   private talkSession!: Talk.Session;
+  currentUser: User | null = null;
+  otherUser: User | null = null;
+  showTalkJsContainer: boolean = false;
 
   ngOnInit(): void {
-    this.currentMode = this.modeService.getMode();
-    this.initializeTalkJS();
-  }
-
-  getCurrentMode(): 'user' | 'support' {
-    return this.modeService.getMode();
+    this.currentUser = this.userService.getCurrentUser();
+    this.userService.getOtherUser().pipe(first()).subscribe((user) => {
+      this.otherUser = user;
+      this.showTalkJsContainer = this.currentUser?.name.toLowerCase() === 'support';
+      this.initializeTalkJS();
+    });
   }
 
   initializeTalkJS(): void {
     Talk.ready.then((): void => {
-      const me = new Talk.User(this.currentMode === 'user' ? { ...USERS[0] } : { ...USERS[1] });
+      const me = new Talk.User({ ...this.currentUser as User });
       this.talkSession = new Talk.Session({
         appId: 'tYnmDpU1',
         me: me,
       });
 
-      const support = new Talk.User(this.currentMode === 'user' ? { ...USERS[1] } : { ...USERS[0] });
+      const otherParticipant = new Talk.User({ ...this.otherUser as User });
 
       const conversation = this.talkSession.getOrCreateConversation('new_conversation');
       conversation.setParticipant(me);
-      conversation.setParticipant(support);
-      if (this.currentMode === 'user' && this.router.url === '/user') {
+      conversation.setParticipant(otherParticipant);
+
+      if (this.currentUser?.name.toLowerCase() === 'user' && this.router.url === '/user') {
         const popup = this.talkSession.createPopup();
         popup.select(conversation);
         popup.mount({ show: false });
