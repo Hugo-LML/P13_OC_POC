@@ -8,7 +8,7 @@
 <main class="container mx-auto p-6">
   <section class="mb-10">
     <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
-    <p class="text-base max-w-[50%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p class="text-base md:max-w-[50%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </section>
 
   <section class="mb-10">
@@ -35,15 +35,15 @@
 
   <section class="mb-10">
     <h2 class="text-2xl font-semibold mb-4">About Us</h2>
-    <div class="flex justify-between">
-      <p class="text-base max-w-[40%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <div class="bg-gray-200 w-[50%] h-72"></div>
+    <div class="flex flex-col justify-between gap-y-6 md:flex-row">
+      <p class="text-base md:max-w-[40%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="bg-gray-200 md:w-[50%] h-72"></div>
     </div>
   </section>
 
   <section>
     <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-    <form [formGroup]="contactForm" class="max-w-[75%] mx-auto mt-6 space-y-4 text-sm">
+    <form [formGroup]="contactForm" class="mx-auto mt-6 space-y-4 text-sm md:max-w-[75%]">
       <div class="flex justify-between">
         <div class="flex flex-col space-y-1 w-[47.5%]">
           <label for="lastname" class="uppercase font-medium">Nom</label>
