@@ -6,7 +6,7 @@
     "password": "POC.user",
     "photoUrl": "https://talkjs.com/images/avatar-4.jpg",
     "welcomeMessage": "Bonjour !",
-    "role": "default"
+    "role": "user"
   },
   {
     "id": "e953f378",
@@ -15,6 +15,6 @@
     "password": "POC.support",
     "photoUrl": "https://talkjs.com/images/avatar-5.jpg",
     "welcomeMessage": "Bonjour ! Comment puis-je vous aider ?",
-    "role": "default"
+    "role": "support"
   }
 ]

@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
 
     if (currentUser) {
       const expectedRole = route.data['role']; // Get the required role for the route from route data
-      if (currentUser.name.toLowerCase() === expectedRole) { // Check if the current user's role matches the required role
+      if (currentUser.role === expectedRole) { // Check if the current user's role matches the required role
         return true; // Allow access if roles match
       } else {
         this.router.navigate(['/']); // Redirect to home if roles do not match
